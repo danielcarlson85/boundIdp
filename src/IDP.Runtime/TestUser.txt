@@ -1,0 +1,71 @@
+﻿Admins (Full access):
+
+{
+  "email": "admin@boundtechnologies.com",
+  "password": "Dej858591"
+}
+
+{
+  "Mail": "test@boundtechnologies.com",
+  "Surname": "testSurName",
+  "GivenName": "testGivenName",
+  "JobTitle": "testJobTitle",
+  "CompanyName": "testCompanyName",
+  "EmployeeId": "testEmplloyeeId",
+  "State": "testState",
+  "StreetAddress": "testStreetAddress",
+  "Country": "testCountry",
+  "MobilePhone": "testMobilePhone",
+  "City": "testCity",
+  "PostalCode": "testPostalCode",
+  "Password": "Dej858591"
+}
+
+
+Users (Basic access):
+{
+  "email": "user@boundtechnologies.com",
+  "password": "Dej858591"
+}
+
+{
+  "email": "test@boundtechnologies.com",
+  "password": "Dej858591"
+}
+
+{
+  "Mail": "user@boundtechnologies.com",
+  "Surname": "user",
+  "GivenName": "user",
+  "JobTitle": "user",
+  "CompanyName": "user",
+  "EmployeeId": "user",
+  "State": "user",
+  "StreetAddress": "user",
+  "Country": "user",
+  "MobilePhone": "user",
+  "City": "user",
+  "PostalCode": "user",
+  "Password": "Dej858591"
+}
+
+Update:
+
+{
+  "id": "string",
+  "surname": "string",
+  "givenName": "string",
+  "state": "string",
+  "streetAddress": "string",
+  "country": "string",
+  "mobilePhone": "string",
+  "city": "string",
+  "postalCode": "string",
+  "passwordProfile": {
+    "forceChangePasswordNextSignIn": false,
+    "forceChangePasswordNextSignInWithMfa": false,
+    "password": "string",
+    "additionalData": {},
+    "oDataType": null
+  }
+}

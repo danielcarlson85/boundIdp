@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bound.IDP.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Bound.IDP.Runtime.Controllers.AdminController">
+            <summary>
+            Main controller for the Admin user.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.GetAllUsersAsync">
+            <summary>
+            Returns all users. (Need to be Admin to use)
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.GetUserAsync(System.String)">
+            <summary>
+            Returns a specific user. (Need to be Admin to use)
+            </summary>
+            <param name="mail">The mail of the user.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.CreateUserAsync(Bound.IDP.Managers.DTO.CreateUserRequest)">
+            <summary>
+            Creates a new Admin user. (Need to be Admin to use)
+            </summary>
+            <param name="user">The user request model to create</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.UpdateUserAsync(Bound.IDP.Managers.DTO.UpdateUserRequest,System.String)">
+            <summary>
+            Updates the specified user. (Need to be Admin to use)
+            </summary>
+            <param name="objectId">The mail of the user to update.</param>
+            <param name="user">The user request model to update</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.DeleteUserAsync(System.String)">
+            <summary>
+            Deletes the specified user. (Need to be Admin to use)
+            </summary>
+            <param name="objectId">The mail of the user to delete.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.GetAsync">
+            <summary>
+            Easy test endpoint.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.LoginAsync(Bound.IDP.Abstractions.Models.LoginCredentials)">
+            <summary>
+            Used to login user and return the bearer token.
+            </summary>
+            <param name="loginCredentials">The login model to pass username and password.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.RedeemRefreshTokenAsync(System.String)">
+            <summary>
+            Used to get a new bearer token from refresh token.
+            </summary>
+            <param name="refreshToken">The refreshToken.</param>
+        </member>
+        <member name="T:Bound.IDP.Runtime.Controllers.UserController">
+            <summary>
+            Main controller for the User.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.GetUserAsync">
+            <summary>
+            Returns the logged in user.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.CreateUserAsync(Bound.IDP.Managers.DTO.CreateUserRequest)">
+            <summary>
+            Creates a new user.
+            </summary>
+            <param name="user">The user request model to create</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.UpdateUserAsync(Bound.IDP.Managers.DTO.UpdateUserRequest)">
+            <summary>
+            Updates the logged in user.
+            </summary>
+            <param name="user">The user request model to update</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.DeleteUserAsync">
+            <summary>
+            Deletes the logged in user.
+            </summary>
+        </member>
+    </members>
+</doc>

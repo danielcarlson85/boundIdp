@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "873d34de-9514-4242-bb53-03c62203f5fe",
+		"name": "Bound",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get accesstoken azure ad b2c bound",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "WIX-kPZWA65F.8.qnqR5Vdy63E2ETGd7~7",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "97539be3-6c55-47ad-9003-a13d08be56f3",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "https://graph.microsoft.com/.default",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/boundtechnologiesadb2c.onmicrosoft.com/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"boundtechnologiesadb2c.onmicrosoft.com",
+						"oauth2",
+						"v2.0",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "97539be3-6c55-47ad-9003-a13d08be56f3",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": "https://graph.microsoft.com/.default",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "WIX-kPZWA65F.8.qnqR5Vdy63E2ETGd7~7",
+							"disabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/x-www-form-urlencoded",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get Access token with app credentials"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token for AzureADB2c User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Admin@bound.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password@",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid 1230147b-e6ef-48d8-92dc-2deb8271121d\n offline_access",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "1230147b-e6ef-48d8-92dc-2deb8271121d\n",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "token id_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://boundtechnologiesadb2c.b2clogin.com/boundtechnologiesadb2c.onmicrosoft.com/B2C_1_bounduserflow/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"boundtechnologiesadb2c",
+						"b2clogin",
+						"com"
+					],
+					"path": [
+						"boundtechnologiesadb2c.onmicrosoft.com",
+						"B2C_1_bounduserflow",
+						"oauth2",
+						"v2.0",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Azure API Management (not setup in Azure)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "71faae0360964d89b61b82b3019158e6",
+						"type": "text"
+					},
+					{
+						"key": "Ocp-Apim-Trace",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://boundapimanagement.azure-api.net/iothub/api/iothub",
+					"protocol": "https",
+					"host": [
+						"boundapimanagement",
+						"azure-api",
+						"net"
+					],
+					"path": [
+						"iothub",
+						"api",
+						"iothub"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

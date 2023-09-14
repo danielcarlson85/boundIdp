@@ -1,0 +1,71 @@
+version: 2.1
+
+workflows:
+  version: 2
+  build_push:
+    jobs:
+      - build_service:
+          context: boundcontext
+          filters:
+           tags:
+             only: /.*/
+      - push_image:
+          context: boundcontext
+          requires:
+           - build_service
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+
+jobs:
+  build_service:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:5.0
+
+    steps:
+      - checkout
+
+      - run:
+          name: Ensure dependencies
+          command: apt update && apt install curl -y
+      - run:
+          name: Ensure credentials provider   
+          command: |
+            mkdir -p "$HOME/.nuget/" && curl -sSL https://github.com/microsoft/artifacts-credprovider/releases/download/v0.1.25/Microsoft.NetCore2.NuGet.CredentialProvider.tar.gz | tar xz -C "$HOME/.nuget/" "plugins/netcore"
+      - run:
+          name: Build
+          command: dotnet build src/Bound.IDP.sln -c Release -o artifacts --source $NUGET_PACKAGE_REGISTRY_URL
+      - run:
+          name: Build artifacts
+          command: dotnet publish src/IDP.Runtime/IDP.Runtime.csproj -o artifacts -c Release -r linux-musl-x64 /p:PublishSingleFile=true --source $NUGET_PACKAGE_REGISTRY_URL
+      - persist_to_workspace:
+          root: . 
+          paths:
+            - artifacts
+
+
+  push_image:
+    docker:
+      - image: docker:18.09.3-git
+    
+    steps:
+     - checkout
+  
+     - attach_workspace:
+         at: .
+         
+     - setup_remote_docker:
+         docker_layer_caching: false
+  
+     - run:
+         name: Docker build
+         command: |
+           docker build -t $AKS_CONTAINER_REGISTRY_URL/bound-idp:$CIRCLE_TAG .
+           echo $AKS_DOCKER_PASSWORD | docker login $AKS_CONTAINER_REGISTRY_URL --username $AKS_DOCKER_USERNAME --password-stdin
+           docker push $AKS_CONTAINER_REGISTRY_URL/bound-idp:$CIRCLE_TAG
+
+
+
+# cd .src && docker build -t boundimageregistry.azurecr.io/bound-api-gateway:$CIRCLE_TAG --build-arg FEED_URL=https://pkgs.dev.azure.com/BoundTechnologies/Bound/_packaging/Auth.Nuget/nuget/v3/index.json --build-arg PAT="cb4lwgwasb5yfiv7avemgzigjcjamynvw2nc4w5v7tszi3fddj2a" --no-cache -f   "DOCKERPATH ."

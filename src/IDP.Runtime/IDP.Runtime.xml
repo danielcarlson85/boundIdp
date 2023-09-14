@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bound.IDP.Runtime.Runtime</name>
+    </assembly>
+    <members>
+        <member name="M:Bound.IDP.Runtime.Authorization.JwtTokenGenerator.GetAzureADUserFromToken(System.String)">
+            <summary>
+            Decodes a base64 encoded jwt token.
+            </summary>
+            <param name="token">The base 64 encoded token</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Authorization.JwtTokenGenerator.GetUserObjectIdFromToken(System.String)">
+            <param name="token">The base 64 encoded token</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Authorization.JwtTokenGenerator.DecodeToken(System.String)">
+            <summary>
+            Decodes a base64 encoded jwt token.
+            </summary>
+            <param name="token">The base 64 encoded token</param>
+        </member>
+        <member name="T:Bound.IDP.Runtime.Controllers.AdminController">
+            <summary>
+            Main controller for the Admin user.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.GetAllUsersAsync">
+            <summary>
+            Returns all users. (Need to be Admin to use)
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.GetUserAsync(System.String)">
+            <summary>
+            Returns a specific user. (Need to be Admin to use)
+            </summary>
+            <param name="objectId">The mail of the user.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.CreateUserAsync(Bound.IDP.Runtime.DTO.UserPOSTRequestDTO)">
+            <summary>
+            Creates a new Admin user. (Need to be Admin to use)
+            </summary>
+            <param name="user">The user request model to create</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.UpdateUserAsync(Bound.IDP.Runtime.DTO.UserPUTRequestDTO,System.String)">
+            <summary>
+            Updates the specified user. (Need to be Admin to use)
+            </summary>
+            <param name="objectId">The mail of the user to update.</param>
+            <param name="user">The user request model to update</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AdminController.DeleteUserAsync(System.String)">
+            <summary>
+            Deletes the specified user. (Need to be Admin to use)
+            </summary>
+            <param name="objectId">The mail of the user to delete.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.Get">
+            <summary>
+            Easy test endpoint.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.LoginAsync(Bound.IDP.Runtime.Models.LoginCredentials)">
+            <summary>
+            Used to login user and return the bearer token.
+            </summary>
+            <param name="loginCredentials">The login model to pass username and password.</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.AuthController.RedeemRefreshTokenAsync(System.String)">
+            <summary>
+            Used to get a new bearer token from refresh token.
+            </summary>
+            <param name="refreshToken">The refreshToken.</param>
+        </member>
+        <member name="T:Bound.IDP.Runtime.Controllers.UserController">
+            <summary>
+            Main controller for the User.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.GetUserAsync">
+            <summary>
+            Returns the logged in user.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.CreateUserAsync(Bound.IDP.Runtime.DTO.UserPOSTRequestDTO)">
+            <summary>
+            Creates a new user.
+            </summary>
+            <param name="user">The user request model to create</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.UpdateUserAsync(Bound.IDP.Runtime.DTO.UserPUTRequestDTO)">
+            <summary>
+            Updates the logged in user.
+            </summary>
+            <param name="user">The user request model to update</param>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Controllers.UserController.DeleteUserAsync">
+            <summary>
+            Deletes the logged in user.
+            </summary>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Services.ADTokenService.LoginAsync(Bound.IDP.Runtime.Models.LoginCredentials)">
+            <summary>
+            Calls Azure AD B2C to validate credentials for authentication and generates tokens.
+            </summary>
+            <param name="loginCredentials">The supplied users login credentials</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bound.IDP.Runtime.Services.ADTokenService.GetRefreshTokenAsync(System.String)">
+            <summary>
+            Calls Azure AD B2C to validate credentials and generates a new access token.
+            </summary>
+            <param name="refreshToken">The supplied refreshToken</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
